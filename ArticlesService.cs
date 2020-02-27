@@ -19,7 +19,6 @@ namespace DeserializeIssue
 
         public override async Task<Article> CreateAsync(Article entity)
         {
-            // call the base implementation which uses Entity Framework
             var newEntity = await base.CreateAsync(entity);
 
             return newEntity;
