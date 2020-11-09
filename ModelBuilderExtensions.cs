@@ -1,9 +1,6 @@
 ﻿using DeserializeIssue.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DeserializeIssue
 {
@@ -25,6 +22,14 @@ namespace DeserializeIssue
                     Id = 1,
                     ArticleProp = "ArticleProp 1",
                     AuthorId = 1
+                }
+            );
+            modelBuilder.Entity<Article>().HasData(
+                new Article
+                {
+                    Id = 2,
+                    ArticleProp = "ArticleProp 2",
+                    AuthorId = 2
                 }
             );
 

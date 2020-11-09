@@ -1,18 +1,10 @@
-﻿using JsonApiDotNetCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using JsonApiDotNetCore.Resources.Annotations;
 
 namespace DeserializeIssue.Models
 {
     public class Teacher : Person
-    { 
-        public Teacher() : base()
-        {
-        }
-
-        [Attr("teacher-prop")]
+    {
+        [Attr(PublicName = "teacher-prop")]
         public string TeacherProp { get; set; }
     }
 }

@@ -1,8 +1,5 @@
-﻿using JsonApiDotNetCore.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using JsonApiDotNetCore.Resources;
+using JsonApiDotNetCore.Resources.Annotations;
 
 namespace DeserializeIssue.Models
 {
@@ -12,7 +9,7 @@ namespace DeserializeIssue.Models
         {
         }
 
-        [Attr("person-prop")]
+        [Attr(PublicName = "person-prop")]
         public string PersonProp { get; set; }
     }
 }

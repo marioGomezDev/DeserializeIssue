@@ -1,27 +1,24 @@
 ﻿using DeserializeIssue.Models;
-using JsonApiDotNetCore.Data;
 using JsonApiDotNetCore.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using JsonApiDotNetCore.Configuration;
+using JsonApiDotNetCore.Hooks.Internal;
+using JsonApiDotNetCore.Middleware;
+using JsonApiDotNetCore.Queries;
+using JsonApiDotNetCore.Repositories;
+using JsonApiDotNetCore.Resources;
+using Microsoft.Extensions.Logging;
 
 namespace DeserializeIssue
 {
-    public class ArticlesService : EntityResourceService<Article>
+    public class ArticlesService : JsonApiResourceService<Article>
     {
-        public ArticlesService(
-            IJsonApiContext jsonApiContext,
-            IEntityRepository<Article> repository)
-        : base(jsonApiContext, repository)
+        public ArticlesService(IResourceRepository<Article, int> repository, IQueryLayerComposer queryLayerComposer,
+            IPaginationContext paginationContext, IJsonApiOptions options, ILoggerFactory loggerFactory,
+            IJsonApiRequest request, IResourceChangeTracker<Article> resourceChangeTracker,
+            IResourceFactory resourceFactory, IResourceHookExecutor hookExecutor = null)
+            : base(repository, queryLayerComposer, paginationContext, options, loggerFactory, request,
+                resourceChangeTracker, resourceFactory, hookExecutor)
         {
-        }
-
-        public override async Task<Article> CreateAsync(Article entity)
-        {
-            var newEntity = await base.CreateAsync(entity);
-
-            return newEntity;
         }
     }
 }
